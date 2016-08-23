@@ -1,40 +1,7 @@
-test0001
-test0001
-test0001
-test0001test0001
-test0001
-test0001
-test0001
-test0001test0001
-test0001
-test0001
-test0001
-test0001test0001
-test0001
-test0001
-test0001
-test0001test0001
-test0001
-test0001
-test0001
-test0001test0001
-test0001
-test0001
-test0001
-test0001test0001
-test0001
-test0001
-test0001
-test0001test0001
-test0001
-test0001
-test0001
-test0001test0001
-test0001
-test0001
-test0001
-test0001test0001
-test0001
-test0001
-test0001
-test0001test0001
+public class Test {
+
+	public static void main(String[] args) {
+		System.out.println("Test");
+	}
+
+}
