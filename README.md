@@ -17,7 +17,7 @@ public class Test {
 		boolean flag = true;
 		StringBuilder stringBuilder = new StringBuilder();
 		while ((lineString = bufferedReader.readLine()) != null && flag) {
-			System.out.println(lineString);
+			System.out.println(lineString+"123132131");
 			stringBuilder.append(lineString+"\r\n");
 		}
 	}
