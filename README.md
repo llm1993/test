@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class GithubTest {
+public class Test {
 
 	public static void main(String[] args) throws Exception {
 		URL url = new URL(
