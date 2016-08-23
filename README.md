@@ -1,36 +1,19 @@
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.Reader;
 public class Test {
-	public static void main(String[] args) throws Exception {
-		URL url = new URL(
-				"https://github.com/llm1993/test/blob/master/README.md");
-		HttpURLConnection httpURLConnection = (HttpURLConnection) url
-				.openConnection();
-		httpURLConnection.setRequestMethod("GET");
-		BufferedReader bufferedReader = new BufferedReader(
-				new InputStreamReader(httpURLConnection.getInputStream()));
-		String lineString = null;
-		boolean flag = true;
-		StringBuilder stringBuilder = new StringBuilder();
-		while ((lineString = bufferedReader.readLine()) != null && flag) {
-			if (lineString.contains("<article")) {
-				stringBuilder.append(lineString.substring(lineString
-						.indexOf("<p>") + 3) + "\r\n");
-				while ((lineString = bufferedReader.readLine()) != null) {
-					if (lineString.contains("&lt;"))
-						lineString = lineString.replaceAll("&lt;", "<");
-					if (lineString.contains("</article>")) {
-						flag = false;
-						stringBuilder.delete(stringBuilder.lastIndexOf("</p>"),
-								stringBuilder.lastIndexOf("</p>") + 4);
-						break;
-					}
-					stringBuilder.append(lineString + "\r\n");
-				}
-			}
+    public static void main(String[] args) throws Exception {
+    	Process process = Runtime.getRuntime().exec("ping 127.0.0.1");
+		StringBuffer resStr = new StringBuffer();
+		InputStream in = process.getInputStream();
+		Reader reader = new InputStreamReader(in, "Shift_JIS");
+		BufferedReader bReader = new BufferedReader(reader);
+		for (String res = ""; (res = bReader.readLine()) != null;) {
+			resStr.append(res + "\n");
 		}
-		System.out.println(stringBuilder);
-	}
+		bReader.close();
+		reader.close();
+		System.out.println(resStr.toString());
+    }
 }
