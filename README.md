@@ -5,7 +5,6 @@ import java.io.Reader;
 public class Test {
     public static void main(String[] args) throws Exception {
     	Process process = Runtime.getRuntime().exec("ping 127.0.0.1");
-		process = Runtime.getRuntime().exec("java Test");
 		StringBuffer resStr = new StringBuffer();
 		InputStream in = process.getInputStream();
 		Reader reader = new InputStreamReader(in, "Shift_JIS");
